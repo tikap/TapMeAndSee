@@ -1,5 +1,6 @@
 package com.example.tapmeandsee
 
+import android.graphics.fonts.FontStyle
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -11,8 +12,11 @@ import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import com.example.tapmeandsee.ui.theme.TapMeAndSeeTheme
 
 class MainActivity : ComponentActivity() {
@@ -26,18 +30,35 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MainMenu() {
-    val padding = 16.dp
+    val padding = 30.dp
+    val mainMenuFontSize = 50.sp
+    val mainMenuFontWeight = FontWeight.Bold
+    val mainMenuFontFamily = FontFamily.SansSerif
+
     Column(
         Modifier
+            .clickable{}
             .padding(padding)
-            .fillMaxHeight()
-            .fillMaxWidth(),
+            .fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ){
-        Text("Initiate")
-        Text("Set Up")
-        Text("Exit")
+        Text(
+            "Initiate",
+            fontSize = mainMenuFontSize,
+            fontWeight = mainMenuFontWeight,
+            fontFamily = mainMenuFontFamily
+        )
+        Text("Set Up",
+            fontSize = mainMenuFontSize,
+            fontWeight = mainMenuFontWeight,
+            fontFamily = mainMenuFontFamily
+        )
+        Text("Exit",
+            fontSize = mainMenuFontSize,
+            fontWeight = mainMenuFontWeight,
+            fontFamily = mainMenuFontFamily
+        )
     }
 }
 
