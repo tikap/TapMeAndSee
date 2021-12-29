@@ -4,20 +4,31 @@ import android.graphics.fonts.FontStyle
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material.Button
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.tapmeandsee.ui.theme.TapMeAndSeeTheme
+
+val mainMenuFontSize = 50.sp
+val mainMenuFontWeight = FontWeight.Bold
+val mainMenuFontFamily = FontFamily.SansSerif
+val buttonPadding = 50.dp
+val buttonBorderDp = 20.dp
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,34 +42,17 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun MainMenu() {
     val padding = 30.dp
-    val mainMenuFontSize = 50.sp
-    val mainMenuFontWeight = FontWeight.Bold
-    val mainMenuFontFamily = FontFamily.SansSerif
 
     Column(
         Modifier
-            .clickable{}
             .padding(padding)
             .fillMaxSize(),
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
     ){
-        Text(
-            "Initiate",
-            fontSize = mainMenuFontSize,
-            fontWeight = mainMenuFontWeight,
-            fontFamily = mainMenuFontFamily
-        )
-        Text("Set Up",
-            fontSize = mainMenuFontSize,
-            fontWeight = mainMenuFontWeight,
-            fontFamily = mainMenuFontFamily
-        )
-        Text("Exit",
-            fontSize = mainMenuFontSize,
-            fontWeight = mainMenuFontWeight,
-            fontFamily = mainMenuFontFamily
-        )
+        Btn_Initiate()
+        Btn_SetUp()
+        Btn_Exit()
     }
 }
 
@@ -66,4 +60,47 @@ fun MainMenu() {
 @Composable
 fun PreviewMainMenu(){
     MainMenu()
+}
+
+@Composable
+fun Btn_SetUp(){
+    Button(onClick = { /*TODO*/ },
+        Modifier.padding(buttonPadding),
+        shape = RoundedCornerShape(buttonBorderDp),
+        border = BorderStroke(Dp.Hairline, Color.Unspecified),
+    ) {
+        Text(text = "Set Up",
+            fontSize = mainMenuFontSize,
+            fontWeight = mainMenuFontWeight,
+            fontFamily = mainMenuFontFamily,
+        )
+    }
+}
+
+@Composable
+fun Btn_Initiate(){
+    Button(onClick = { /*TODO*/ },
+        Modifier.padding(buttonPadding),
+        shape = RoundedCornerShape(buttonBorderDp),
+        border = BorderStroke(Dp.Hairline, Color.Unspecified),
+    ) {
+        Text(text = "Initiate",
+            fontSize = mainMenuFontSize,
+            fontWeight = mainMenuFontWeight,
+            fontFamily = mainMenuFontFamily)
+    }
+}
+
+@Composable
+fun Btn_Exit(){
+    Button(onClick = { /*TODO*/ },
+        Modifier.padding(buttonPadding),
+        shape = RoundedCornerShape(buttonBorderDp),
+        border = BorderStroke(Dp.Hairline, Color.Unspecified),
+    ) {
+        Text(text = "Exit",
+            fontSize = mainMenuFontSize,
+            fontWeight = mainMenuFontWeight,
+            fontFamily = mainMenuFontFamily)
+    }
 }
