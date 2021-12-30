@@ -93,7 +93,7 @@ fun Btn_Initiate(){
 
 @Composable
 fun Btn_Exit(){
-    Button(onClick = { /*TODO*/ },
+    Button(onClick = { android.os.Process.killProcess(android.os.Process.myPid()) },
         Modifier.padding(buttonPadding),
         shape = RoundedCornerShape(buttonBorderDp),
         border = BorderStroke(Dp.Hairline, Color.Unspecified),
